@@ -1,0 +1,260 @@
+body,
+main,
+h2,
+p,
+div,
+span,
+section
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main
+{
+    width: 1014px;
+    margin: 0 auto;
+    padding: 15px;
+    border: 1px solid #dedddd;
+}
+
+.pussy_item
+{
+    width: 220px;
+    display: inline-block;
+    margin: 15px;
+    border: none;
+    transition: all .2s ease-out;
+}
+
+.pussy_item:hover
+{
+    box-shadow: 0 5px 10px #6c6c6c;
+}
+
+.pussy_item-info
+{
+    border-bottom: 1px solid #dedddd;
+    border-left: 1px solid #dedddd;
+    border-right: 1px solid #dedddd;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+.pussy_item-img_wrapper
+{
+    width: 220px;
+    height: 140px;
+    overflow: hidden;
+}
+
+.img_wrapper-img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 0 20%;
+    transition: all 1s ease-out;
+}
+
+.img_wrapper-img:hover
+{
+    transform: scale(1.1);
+}
+
+.pussy_item-name
+{
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pussy_item-name:hover
+{
+    font-weight: 600;
+}
+
+p
+{
+    color: #6c6c6c;
+    font-size: 14px;
+}
+
+.pussy_item-name,
+.pussy_item-short_info,
+.pussy_item-status
+{
+    margin-bottom: 10px;
+}
+
+.pussy_item-short_info:hover p,
+.pussy_item-full_info:hover p,
+p:hover
+{
+    color: black;
+}
+
+.pussy_item-full_info
+{
+    display: none;
+}
+
+input
+{
+    display: none;
+}
+
+.toggle-button
+{
+    margin-left: 15px;
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+}
+
+.toggle::before,
+.toggle::after,
+span::after
+{
+    top: 0;
+    width: 4px;
+    height: 100%;
+    content: '';
+    position: absolute;
+    background: black;
+    transition: .3s ease all;
+}
+
+.toggle::before
+{
+    left: 0;
+}
+
+.toggle::after
+{
+    left: 8px;
+}
+
+span::after
+{
+    left: 16px;
+}
+
+input:checked + label .toggle::before,
+input:checked + label .toggle::after,
+input:checked + label span::after
+{
+    left: 6px;
+    transform: rotate(90deg);
+}
+
+input:checked + label .toggle::before
+{
+    top: -10px;
+}
+
+input:checked + label span::after
+{
+    top: 10px;
+}
+
+input:checked + label .toggle::after
+{
+    top: 0;
+}
+
+input:checked ~ section > .pussy_item
+{
+    display: block;
+    margin: 0 auto;
+    width: 600px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 1px solid #dedddd;
+    padding: 20px 20px 30px;
+}
+
+input:checked ~ section > .pussy_item > .pussy_item-img_wrapper
+{
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+input:checked ~ section > .pussy_item > .pussy_item-img_wrapper > img
+{
+    object-fit: contain;
+    object-position: 50% 50%;
+    transition: all .1s ease-out;
+    transform: scale(1);
+}
+
+input:checked ~ section > .pussy_item > .pussy_item-info
+{
+    padding: 0;
+    border: 0;
+}
+
+input:checked ~ section > .pussy_item > .pussy_item-info > div,
+input:checked ~ section > .pussy_item > .pussy_item-info > p
+{
+    display: none;
+}
+
+input:checked ~ section > .pussy_item > .pussy_item-info > div:last-child
+{
+    display: block;
+}
+
+@media screen and (max-width: 1014px)
+{
+    main
+    {
+        width: 759px;
+    }
+}
+
+@media screen and (max-width: 760px)
+{
+    main
+    {
+        width: 505px;
+    }
+
+    input:checked ~ section > .pussy_item
+    {
+        display: block;
+        margin: 0 auto;
+        width: 505px;
+    }
+}
+
+@media screen and (max-width: 505px)
+{
+    main
+    {
+        width: 250px;
+    }
+
+    input:checked ~ section > .pussy_item
+    {
+        display: block;
+        margin: 0 auto;
+        width: 250px;
+    }
+
+    input:checked ~ section > .pussy_item > .pussy_item-img_wrapper
+    {
+        width: 100%;
+        height: 200px;
+    }
+}
